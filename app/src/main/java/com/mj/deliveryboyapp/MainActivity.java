@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("brandId",getIntent().getStringExtra("brandId"));
             startActivity(intent);
         }
-        Button button = findViewById(R.id.btn);
+        Button button = findViewById(R.id.baseline);
         mRequestQue = Volley.newRequestQueue(this);
         FirebaseMessaging.getInstance().subscribeToTopic("news");
 
