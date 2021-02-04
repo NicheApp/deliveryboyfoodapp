@@ -9,6 +9,7 @@
     android:layout_marginTop="16dp"
     app:cardCornerRadius="15dp">
     <TextView
+        android:id="@+id/restaddtxt"
         android:layout_height="20dp"
         android:layout_width="wrap_content"
         android:text="Restaurant Address"
@@ -19,12 +20,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <ImageView
+            android:id="@+id/restaddimg"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/pin"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="33dp"/>
         <TextView
+            android:id="@+id/datarestadd"
             android:layout_height="40dp"
             android:layout_width="wrap_content"
             android:text="Adarsh Super Market, Bhakti Nagar road, Adajan, Surat"
@@ -32,6 +35,7 @@
             android:layout_marginTop="30dp"/>
     </LinearLayout>
     <TextView
+        android:id="@+id/custaddtxt"
         android:layout_height="20dp"
         android:layout_width="wrap_content"
         android:text="Customer Address"
@@ -43,12 +47,14 @@
         android:orientation="horizontal"
         android:layout_marginTop="70dp">
         <ImageView
+            android:id="@+id/custaddimg"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/pin"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="33dp"/>
         <TextView
+            android:id="@+id/datacustadd"
             android:layout_height="40dp"
             android:layout_width="wrap_content"
             android:text="A-58, Valam nagar Soc, Varachha, Surat"
@@ -56,6 +62,7 @@
             android:layout_marginTop="33dp"/>
     </LinearLayout>
     <ImageView
+        android:id="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:src="#565D91"
@@ -71,6 +78,7 @@
         android:orientation="vertical"
         android:layout_marginLeft="10dp">
         <TextView
+            android:id="@+id/pickuptimetxt"
             android:layout_height="20dp"
             android:layout_width="wrap_content"
             android:text="Order Pickup Time"
@@ -81,12 +89,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
         <ImageView
+            android:id="@+id/pickupimage"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/clock"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="6dp"/>
         <TextView
+            android:id="@+id/pickuptime"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="8:00 AM"
@@ -102,6 +112,7 @@
             android:orientation="vertical"
             android:layout_marginLeft="90dp">
             <TextView
+                android:id="@+id/delivtimetxt"
                 android:layout_height="20dp"
                 android:layout_width="wrap_content"
                 android:text="Delivery Time"
@@ -112,12 +123,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ImageView
+                    android:id="@+id/delivimage"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/clock"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="6dp"/>
                 <TextView
+                    android:id="@+id/delivtime"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="9:00 AM"
@@ -129,25 +142,30 @@
         </LinearLayout>
     </LinearLayout>
     <TextView
+        android:id="@+id/appx"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:text="Approx : 5"
         android:layout_marginLeft="17dp"
         android:layout_marginTop="240dp"/>
-<ImageButton
+<Button
+    android:id="@+id/accept"
     android:layout_height="45dp"
     android:layout_width="100dp"
     android:layout_marginTop="230dp"
     android:layout_marginLeft="140dp"
-
+    android:text="ACCEPT"
+    android:textColor="@color/white"
     android:background="@drawable/button"
     />
-    <ImageButton
+    <Button
+        android:id="@+id/reject"
         android:layout_height="45dp"
         android:layout_width="100dp"
         android:layout_marginTop="230dp"
         android:layout_marginLeft="250dp"
-
+        android:text="REJECT"
+        android:textColor="@color/white"
         android:background="@drawable/buttonreject"
         />
 

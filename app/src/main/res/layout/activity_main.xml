@@ -48,7 +48,7 @@
             android:layout_height="15dp"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="19dp"
-            android:layout_weight="center" />
+          />
     </LinearLayout>
 
     <ImageView
@@ -79,11 +79,16 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="75dp"
+        android:background="#ffffff"
+        android:elevation="15dp"
+        app:itemIconTint="@color/icon_color"
+        app:itemTextColor="@color/icon_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flFragment"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
