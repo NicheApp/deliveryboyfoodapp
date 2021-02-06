@@ -18,14 +18,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import static com.mj.deliveryboyapp.MainActivity.orders;
+
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public Context mContext;
-    Myhomedata[] myhomedata;
-    Homefragment context;
 
-    public HomeAdapter(Context context, Myhomedata[] myhomedata) {
-        this.myhomedata = myhomedata;
+
+    List<orderdetailsmodelclass> myhomedata;
+
+    public HomeAdapter(Context context,  List<orderdetailsmodelclass> myhomedata) {
+        this.myhomedata = orders;
         mContext = context;
+
     }
 
     @NonNull
@@ -39,17 +43,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Myhomedata myhomeDataList = myhomedata[position];
-        holder.restadd.setText(myhomeDataList.getRestadd());
-        holder.custadd.setText(myhomeDataList.getCustadd());
-        holder.pickuptime.setText(myhomeDataList.getPickuptime());
-        holder.delivtime.setText(myhomeDataList.getDelivtime());
+        orderdetailsmodelclass uploadCurrent  = myhomedata.get(position);
+
+        holder.restadd.setText(uploadCurrent.getRes());
+        holder.custadd.setText(uploadCurrent.getAdd());
+        holder.pickuptime.setText(uploadCurrent.getPitime());
+        holder.delivtime.setText(uploadCurrent.getDltime());
 
     }
 
     @Override
     public int getItemCount() {
-        return myhomedata.length;
+        return myhomedata.size();
     }
 
 
