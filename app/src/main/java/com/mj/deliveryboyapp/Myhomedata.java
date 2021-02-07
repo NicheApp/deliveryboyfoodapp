@@ -1,11 +1,13 @@
 package com.mj.deliveryboyapp;
+
+import android.widget.Button;
+
 public class Myhomedata {
 
     private String restadd;
     private String custadd;
     private String pickuptime;
     private String delivtime;
-
     public Myhomedata(String restadd, String custadd, String pickuptime, String delivtime) {
         this.restadd = restadd;
         this.custadd = custadd;
