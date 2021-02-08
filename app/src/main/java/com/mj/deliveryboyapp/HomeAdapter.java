@@ -2,6 +2,8 @@ package com.mj.deliveryboyapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -44,6 +46,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.custadd.setText(myhomeDataList.getCustadd());
         holder.pickuptime.setText(myhomeDataList.getPickuptime());
         holder.delivtime.setText(myhomeDataList.getDelivtime());
+        holder.accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent fp=new Intent(mContext.getApplicationContext(),Gmap.class);
+                mContext.startActivity(fp);
+            }
+        });
 
     }
 
@@ -70,6 +79,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         TextView appx;
         Button accept;
         Button reject;
+
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             restaddimg = itemView.findViewById(R.id.restaddimg);
@@ -87,6 +98,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             delivtime = itemView.findViewById(R.id.delivtime);
             accept = itemView.findViewById(R.id.accept);
             reject = itemView.findViewById(R.id.reject);
+
         }
     }
 
