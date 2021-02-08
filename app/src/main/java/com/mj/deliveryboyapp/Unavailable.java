@@ -23,7 +23,7 @@ Button goonline;
         }
         else{
 
-        setContentView(R.layout.activity_unavailable);
+        setContentView(R.layout.firstpage);
             FirebaseMessaging.getInstance().subscribeToTopic("no");
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this);
         goonline = findViewById(R.id.goonline);

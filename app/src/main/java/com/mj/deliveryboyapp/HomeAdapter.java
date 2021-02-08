@@ -49,6 +49,16 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.custadd.setText(uploadCurrent.getAdd());
         holder.pickuptime.setText(uploadCurrent.getPitime());
         holder.delivtime.setText(uploadCurrent.getDltime());
+        holder.accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isalreadybooked isalreadybooked=new isalreadybooked(mContext,position);
+                isalreadybooked.execute(uploadCurrent.getOrderid(),"ramesh");
+                notifyDataSetChanged();
+
+
+            }
+        });
 
     }
 
