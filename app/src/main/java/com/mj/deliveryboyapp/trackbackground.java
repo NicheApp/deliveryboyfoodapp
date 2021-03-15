@@ -18,10 +18,10 @@ import java.net.URLEncoder;
 
 import static com.mj.deliveryboyapp.MainActivity.orders;
 
-public class orderdetailsbackground extends AsyncTask<String,Void,String> {
+public class trackbackground extends AsyncTask<String,Void,String> {
     Context context;
 
-    public orderdetailsbackground(Context ctx)
+    public trackbackground(Context ctx)
     {
         context=ctx;
 
@@ -29,15 +29,30 @@ public class orderdetailsbackground extends AsyncTask<String,Void,String> {
     }
     @Override
     protected String doInBackground(String... voids) {
-       // String login_url= "http://192.168.43.221/retrieve1.php";
-         String login_url= "http://192.168.43.201/food/orderdetails.php";
+        // String login_url= "http://192.168.43.221/retrieve1.php";
+        String login_url= "http://192.168.43.201/food/livetrackupload.php";
         if(true){
             try {
+                 String orderid= voids[0];
+                 String lan=voids[1];
+                 String lon=voids[2];
+                 String dlid=voids[3];
+                //  mobile=voids[1];
                 URL url=new URL(login_url);
                 HttpURLConnection httpURLConnection =(HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setDoInput(true);
+                 OutputStream outputStream=httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter=new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
+                 String post_data= URLEncoder.encode("orderid","UTF-8")+"="+URLEncoder.encode(orderid,"UTF-8")+"&"
+                      +URLEncoder.encode("lat","UTF-8")+"="+URLEncoder.encode(lan,"UTF-8")+"&"
+                         +URLEncoder.encode("lon","UTF-8")+"="+URLEncoder.encode(lan,"UTF-8")+"&"
+                         +URLEncoder.encode("dlid","UTF-8")+"="+URLEncoder.encode(lan,"UTF-8");
+                 bufferedWriter.write(post_data);
+                 bufferedWriter.flush();
+                 bufferedWriter.close();
+                outputStream.close();
                 InputStream inputStream=httpURLConnection.getInputStream();
                 BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
                 String result="";
@@ -64,29 +79,13 @@ public class orderdetailsbackground extends AsyncTask<String,Void,String> {
     }
     @Override
     protected void onPreExecute() {
-        // alertDialog=new AlertDialog.Builder(context).create();
-        //alertDialog.setTitle("Login Status");
 
     }
 
     @Override
     protected void onPostExecute(String result) {
-        try {
-            JSONArray jsonArray = new JSONArray(result);
 
-            for(int i=0;i<jsonArray.length();i++)
-            {
-                JSONObject obj=jsonArray.getJSONObject(i);
-                orders.add(new orderdetailsmodelclass(obj.getString("orderid"),obj.getString("name"),obj.getString("mobile"), obj.getString("email"),obj.getString("address"),obj.getString("latitude"),
-                    obj.getString("longitude"),obj.getString("restaurant"),
-                    obj.getString("billingprice"),obj.getString("billingtype"),obj.getString("deliverytime"),
-                       obj.getString("pickuptime"),obj.getInt("deliverying"),obj.getString("resadd"),obj.getString("resnum"),obj.getString("resid")));
-
-            }
-        }catch (Exception e){
-
-            Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
-        }
+        Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
     }
 
     @Override

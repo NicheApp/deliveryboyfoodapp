@@ -3,10 +3,10 @@ package com.mj.deliveryboyapp;
 import java.math.BigDecimal;
 
 public class orderdetailsmodelclass {
-   private String orderid,name,mobile,email,add,res,price,type,dltime,pitime;
-   private Double lat, lon;
+   private String orderid,name,mobile,email,add,res,price,type,dltime,pitime,resadd,resnum,resid,lat,lon;
+
    private int deliverying;
-    public  orderdetailsmodelclass(String orderid, String name, String mobile, String email, String add,Double lat,Double lon,String res, String price,String type, String dltime, String pitime, int deliverying)
+    public  orderdetailsmodelclass(String orderid, String name, String mobile, String email, String add,String lat,String lon,String res, String price,String type, String dltime, String pitime, int deliverying,String resadd,String resnum,String resid)
     {
 this.orderid=orderid;
 this.name=name;
@@ -20,6 +20,9 @@ this.price=price;
 this.type=type;
 this.dltime=dltime;
 this.pitime=pitime;
+this.resadd=resadd;
+this.resnum=resnum;
+this.resid=resid;
 
     }
 
@@ -103,20 +106,44 @@ this.pitime=pitime;
         this.pitime = pitime;
     }
 
-    public Double getLat() {
+    public String getLat() {
         return lat;
     }
 
-    public void setLat(Double lat) {
+    public void setLat(String lat) {
         this.lat = lat;
     }
 
-    public Double getLon() {
+    public String getLon() {
         return lon;
     }
 
-    public void setLon(Double lon) {
+    public void setLon(String lon) {
         this.lon = lon;
+    }
+
+    public String getResadd() {
+        return resadd;
+    }
+
+    public void setResadd(String resadd) {
+        this.resadd = resadd;
+    }
+
+    public String getResnum() {
+        return resnum;
+    }
+
+    public void setResnum(String resnum) {
+        this.resnum = resnum;
+    }
+
+    public String getResid() {
+        return resid;
+    }
+
+    public void setResid(String resid) {
+        this.resid = resid;
     }
 
     public int getDeliverying() {

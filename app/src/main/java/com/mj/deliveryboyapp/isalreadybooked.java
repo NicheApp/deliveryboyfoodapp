@@ -1,7 +1,9 @@
 package com.mj.deliveryboyapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.developer.kalert.KAlertDialog;
@@ -24,6 +26,7 @@ import static com.mj.deliveryboyapp.MainActivity.orders;
 public class isalreadybooked extends AsyncTask<String,Void,String> {
     Context context;
     public int position;
+    String ammount,items,payment,dltime,username,add,num,orderid,resadd,resnum,resid,resname,lat,lon;
     public isalreadybooked(Context ctx,int position)
     {
         context=ctx;
@@ -37,8 +40,23 @@ public class isalreadybooked extends AsyncTask<String,Void,String> {
         String login_url= "http://192.168.43.201/food/isalreadyaccepted.php";
         if(true){
             try {
-               String orderid= voids[0];
+                orderid= voids[0];
                String deliveryboyname =voids[1];
+                ammount=voids[2];
+                payment=voids[3];
+                dltime=voids[4];
+                username=voids[5];
+                add=voids[6];
+                num=voids[7];
+                resadd=voids[8];
+                resnum=voids[9];
+                resid=voids[10];
+                resname=voids[11];
+                lat=voids[12];
+                lon=voids[13];
+
+
+
                 //  mobile=voids[1];
                 URL url=new URL(login_url);
                 HttpURLConnection httpURLConnection =(HttpURLConnection) url.openConnection();
@@ -87,8 +105,7 @@ public class isalreadybooked extends AsyncTask<String,Void,String> {
     @Override
     protected void onPostExecute(String result) {
 
-        Toast.makeText(context,result,Toast.LENGTH_SHORT).show();
-        if(result.equals("1"))
+       if(result.equals("1"))
         {
             new KAlertDialog(context, KAlertDialog.WARNING_TYPE)
                     .setTitleText("Sorry !")
@@ -108,6 +125,23 @@ public class isalreadybooked extends AsyncTask<String,Void,String> {
         }
         else
         {
+            Intent intent =new Intent(context,Orderfinaldetails.class);
+            intent.putExtra("orderid",orderid);
+            intent.putExtra("resname",resname);
+            intent.putExtra("resadd",resadd);
+            intent.putExtra("resnum",resnum);
+            intent.putExtra("resid",resid);
+            intent.putExtra("type",payment);
+            intent.putExtra("dltime",dltime);
+
+            intent.putExtra("name",username);
+            intent.putExtra("add",add);
+            intent.putExtra("mobile",num);
+            intent.putExtra("lat",lat);
+            intent.putExtra("lon",lon);
+            intent.putExtra("ammount",ammount);
+
+            context.startActivity(intent);
 
 
         }

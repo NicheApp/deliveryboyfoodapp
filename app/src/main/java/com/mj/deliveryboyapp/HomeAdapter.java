@@ -27,7 +27,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     List<orderdetailsmodelclass> myhomedata;
 
     public HomeAdapter(Context context,  List<orderdetailsmodelclass> myhomedata) {
-        this.myhomedata = orders;
+        this.myhomedata = myhomedata;
         mContext = context;
 
     }
@@ -53,8 +53,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 isalreadybooked isalreadybooked=new isalreadybooked(mContext,position);
-                isalreadybooked.execute(uploadCurrent.getOrderid(),"ramesh");
+                isalreadybooked.execute(uploadCurrent.getOrderid(),"ramesh",uploadCurrent.getPrice()
+                ,uploadCurrent.getType(),uploadCurrent.getDltime(),uploadCurrent.getName(),uploadCurrent.getAdd()
+                        ,uploadCurrent.getMobile(),uploadCurrent.getResadd(),uploadCurrent.getResnum(),uploadCurrent.getResid(),uploadCurrent.getRes(),uploadCurrent.getLat(),uploadCurrent.getLon());
                 notifyDataSetChanged();
+
+
 
 
             }
