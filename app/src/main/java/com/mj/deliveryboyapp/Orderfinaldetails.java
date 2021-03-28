@@ -83,9 +83,10 @@ CardView orderdetailsres,orderdetailsuser,contactdetailsres,contactdetailuser;
         //resdetails
         restadd=intent.getStringExtra("resadd");
          resadd.setText(restadd);
+        String orderiduser=intent.getStringExtra("orderid");
          resnumber.setText(intent.getStringExtra("resnum"));
          resname.setText(intent.getStringExtra("resname"));
-         order.setText("Order "+intent.getStringExtra("orderid"));
+         order.setText("Order "+orderiduser);
 
          //user details
 
