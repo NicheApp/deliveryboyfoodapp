@@ -150,20 +150,7 @@ delivered.setOnClickListener(new View.OnClickListener() {
     @SuppressLint("ResourceType")
     @Override
     public void onClick(View v) {
-        new FancyGifDialog.Builder(getApplicationContext())
-                .setTitle("Granny eating chocolate dialog box")
-                .setMessage("This is a granny eating chocolate dialog box. This library is used to help you easily create fancy gify dialog.")
-                .setPositiveBtnText("Ok")
-                .setGifResource(R.drawable.ic_clapping)
-                .setPositiveBtnBackground(Color.parseColor("#FF4081"))//Pass your Gif here
-                .isCancellable(true)
-                .OnPositiveClicked(new FancyGifDialogListener() {
-                    @Override
-                    public void OnClick() {
-                        //new Intent(Orderfinaldetails.this,MainActivity.class);
-                    }
-                })
-                .build();
+
     }
 });
 userdirections.setOnClickListener(new View.OnClickListener() {
